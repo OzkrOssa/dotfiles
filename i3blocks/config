@@ -1,0 +1,81 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+#command=/home/odog/.config/i3blocks/scripts/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[brightness]
+label=BRI
+command=/home/odog/.config/i3blocks/scripts/brightness.sh
+interval=once
+
+[volume]
+command=/home/odog/.config/i3blocks/scripts/volume
+label=VOL
+#label=♪
+instance=Master
+#instance=PCM
+interval=once
+signal=10
+
+[memory]
+command=free -m | awk 'NR==2{printf "%.1fG", $3/1024 }'
+label=MEM
+separator=true
+interval=5
+
+[iface]
+label=L
+command=/home/odog/.config/i3blocks/scripts/iface
+color=#00FF00
+interval=10
+separator=false
+
+[target_htb]
+label= T
+command=/home/odog/.config/i3blocks/scripts/target_htb.sh
+color=#FF0000
+interval=2
+separator=false
+
+[vpn_status]
+label=V
+command=/home/odog/.config/i3blocks/scripts/vpn_status.sh
+color=#0000FF
+interval=5
+separator=true
+
+[cpu_usage]
+command=/home/odog/.config/i3blocks/scripts/cpu_usage
+label=CPU
+interval=10
+#min_width=CPU: 100.00%
+
+[time]
+command=date '+%Y-%m-%d %I:%M:%S'
+interval=5
+
